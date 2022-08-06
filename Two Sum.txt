@@ -1,0 +1,30 @@
+class Solution 
+{
+    public int[] twoSum(int[] nums, int target) 
+    {
+         HashMap<Integer,Integer>map=new HashMap();
+        
+        for(int i=0; i<nums.length;i++)
+        {
+            map.put(nums[i],i);  //storing value and index in HashMap
+        }
+        
+        for(int i=0;i<nums.length;i++)
+        {
+            int num=nums[i]; //first number in a variable
+            
+            int rem=target-num; // finding difference of target using variable 
+            
+            if(map.containsKey(rem))
+            {
+                int index=map.get(rem);
+                if(index==i)    // this is a condition checking done to ensure we don't use same number twice
+                    continue;
+                return new int[]{i,index};
+            }
+            
+        }
+        return new int[]{};
+        
+    }
+}
